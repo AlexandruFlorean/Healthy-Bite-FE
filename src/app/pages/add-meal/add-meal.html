@@ -1,0 +1,68 @@
+<!-- <pre>DEBUG: {{ ingredients | json }}</pre> -->
+
+<dialog open>
+  <form [formGroup]="addMealForm" (ngSubmit)="addMeal()">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter Meal Name</mat-label>
+        <input matInput formControlName="mealName" /> </mat-form-field
+      ><br />
+
+      <h3>Ingredients:</h3>
+
+      <mat-list role="list">
+        @for (group of ingredientsArray.controls; track $index) {
+        <mat-list-item role="listitem">
+          <span matListItemTitle>
+            {{ getIngredientName(group.value.ingredientId) }}
+          </span>
+          <span matListItemLine> Cantitate: {{ group.value.quantity }} g </span>
+
+          <button mat-icon-button color="warn" type="button" (click)="removeIngredient($index)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-list-item>
+        }
+      </mat-list>
+
+      @if (ingredientsArray.length === 0) {
+      <p style="color: gray">Niciun ingredient adăugat încă.</p>
+      }
+
+      <div class="ingredient-row">
+      <mat-form-field>
+        <mat-label>Select an ingredient</mat-label>
+        <mat-select [formControl]="currentIngredientControl">
+          @for (item of ingredients; track item.id) {
+          <mat-option [value]="item.id">
+            {{ item.ingredientName }}
+          </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Enter quantity</mat-label>
+        <input matInput type="number" [formControl]="currentQuantityControl" />
+      </mat-form-field>
+
+      <div class="add-btn-wrapper">
+      @if (!currentIngredientControl.value) {
+      <button type="button" routerLink="/new-ingredient">
+        New Ingredient
+      </button>
+      } @else {
+        <button mat-mini-fab color="primary" type="button" (click)="addIngredientToTable()">
+        <mat-icon>+</mat-icon>
+      </button>
+      }
+
+      </div>
+      </div>
+
+      <br/>
+
+      <button type="submit" [disabled]="addMealForm.invalid || ingredientsArray.length === 0">Add Meal</button>
+    </div>
+  </form>
+</dialog>

@@ -1,0 +1,13 @@
+div {
+    text-align: right;
+}
+
+button {
+    padding: 8px 20px;
+    margin-top: 10px;
+    margin-right: 20px;
+    background: #b8e2bb;
+}
+button:hover {
+    background-color: #0fb300;
+}

@@ -1,0 +1,38 @@
+:host {
+  display: block;        
+  padding: 2rem 1rem;
+  margin-left: 150px;    
+  width: max-content;   
+}
+
+mat-stepper {
+  width: 100%;         
+  max-width: 420px;    
+  background: rgb(219, 219, 219);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.mat-step-icon {
+  background-color: #4caf50 !important;  
+  color: white !important;               
+}
+
+button.btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+button {
+  margin-right: 0.5rem;
+}
+
+#toggle-linear {
+  margin-bottom: 1.5rem;
+}

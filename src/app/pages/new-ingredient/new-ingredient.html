@@ -1,0 +1,21 @@
+<dialog open>
+  <form [formGroup]="addIngredientForm" (ngSubmit)="addIngredient()">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your ingredient name</mat-label>
+        <input matInput formControlName="name" />
+     </mat-form-field><br />
+
+      <mat-form-field appearance="outline">
+        <mat-label>Calories</mat-label>
+        <input matInput formControlName="calories" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Proteins</mat-label>
+        <input matInput formControlName="proteins" />
+      </mat-form-field>
+    </div>
+    <button type="submit" [disabled]="addIngredientForm.invalid">Add ingredient</button>
+  </form>
+</dialog>

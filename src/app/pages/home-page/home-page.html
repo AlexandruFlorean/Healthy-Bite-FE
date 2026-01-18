@@ -1,0 +1,33 @@
+<div class="meals-container">
+  <h1>Mesele Mele</h1>
+
+  <button mat-raised-button color="primary" routerLink="/new-meal">
+    <mat-icon>add</mat-icon> Adaugă Masă
+  </button>
+  
+  <br><br>
+
+  <div class="cards-grid">
+    @for (meal of meals; track meal.id) {
+      <mat-card class="meal-card">
+        <mat-card-header>
+          <mat-card-title>{{ meal.name }}</mat-card-title>
+          <mat-card-subtitle>Ingrediente: {{ meal.mealIngredients.length }}</mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-content>
+          <ul>
+            @for (ing of meal.mealIngredients; track $index) {
+              <li>{{ ing.ingredientName }} - {{ ing.quantity }}g</li>
+            }
+          </ul>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-button color="primary">Detalii</button>
+            <button mat-button color="warn">Șterge</button>
+        </mat-card-actions>
+      </mat-card>
+    } 
+  </div>
+</div>

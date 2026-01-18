@@ -1,0 +1,47 @@
+<dialog open>
+  <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your First Name</mat-label>
+        <input matInput formControlName="firstName" /> </mat-form-field
+      ><br />
+
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your Last Name</mat-label>
+        <input matInput formControlName="lastName" /> </mat-form-field
+      ><br />
+
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your email</mat-label>
+        <input matInput type="email" formControlName="email" /> </mat-form-field
+      ><br />
+
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your phone number</mat-label>
+        <input matInput formControlName="phone" /> </mat-form-field
+      ><br />
+
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide() ? 'password' : 'text'" formControlName="password" />
+        <button
+        type="button"
+        mat-icon-button
+        matSuffix
+        (click)="clickEvent($event)"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide()"
+        >
+        <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    </mat-form-field>
+      <br />
+
+      <button class="create-button" type="submit" [disabled]="signUpForm.invalid">Create</button>
+      <p class="signIn-text">
+      You have an account?
+      <button class="signIn-button" routerLink="/sign-in">Sign in</button>
+    </p>
+    </div>
+  </form>
+</dialog>

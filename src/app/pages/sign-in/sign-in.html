@@ -1,0 +1,35 @@
+<dialog open>
+  <form [formGroup]="signInForm" (ngSubmit)="onSignIn()">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your email</mat-label>
+        <input matInput formControlName="email" />
+     </mat-form-field><br />
+
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your password</mat-label>
+        <input matInput formControlName="password" [type]="hide() ? 'password' : 'text'" />
+        <button
+          type="button"
+          matIconButton
+          matSuffix
+          (click)="clickEvent($event)"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide()"
+        >
+          <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <button 
+    class="signIn-button"
+    [disabled]="signInForm.invalid"
+    type="submit">
+    Sign In
+  </button>
+    <p class="signUp-text">
+      You don't have an account?
+     <a href="/sign-up"> <button class="signUp-button" type="button" name="signUp" id="signUp">Sign up</button></a>
+    </p>
+  </form>
+</dialog>
