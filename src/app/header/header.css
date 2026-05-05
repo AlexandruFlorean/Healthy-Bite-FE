@@ -1,12 +1,17 @@
+header {
+    margin: 0;
+    padding: 0;
+}
+
 div {
     text-align: right;
 }
 
 button {
-    padding: 8px 20px;
+    /* padding: 8px 20px;
     margin-top: 10px;
     margin-right: 20px;
-    background: #b8e2bb;
+    background: red; */
 }
 button:hover {
     background-color: #0fb300;

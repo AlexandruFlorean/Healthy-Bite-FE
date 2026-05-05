@@ -11,6 +11,7 @@ import { Router, RouterModule } from '@angular/router';
 import { IngredientsDtoResponse } from '../../models/ingredients-dto-response.model';
 import { RegisterMealDto } from '../../models/register-meal-dto.model';
 import { MealService } from '../../services/Meal.service';
+import { MealIngredientDtoResponse } from '../../models/meal-ingredient-dto-response.model';
 
 @Component({
   selector: 'app-add-meal',
@@ -84,12 +85,24 @@ export class AddMeal implements OnInit {
       console.log('Add Meal Form is invalid');
       return;
     }
-
     const formData = this.addMealForm.value;
+
+    let totalCalories = 0;
+    let totalProteins = 0;
+    for (const item of this.ingredientsArray.value) {
+      const ingredient = this.ingredients.find(i => i.id === item.ingredientId);
+      if (ingredient) {
+        totalCalories += item.quantity * ingredient.calories;
+        totalProteins += item.quantity * ingredient.proteins;
+      }
+    }
+
     const registerMealDto: RegisterMealDto = {
       name: formData.mealName,
       userId: formData.userId,
       mealIngredients: this.ingredientsArray.value,
+      calories: totalCalories,
+      proteins: totalProteins
     };
 
     this.MealService.register(registerMealDto).subscribe((mealDto) => {

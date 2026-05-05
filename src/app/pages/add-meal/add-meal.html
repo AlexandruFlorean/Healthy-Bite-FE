@@ -1,5 +1,3 @@
-<!-- <pre>DEBUG: {{ ingredients | json }}</pre> -->
-
 <dialog open>
   <form [formGroup]="addMealForm" (ngSubmit)="addMeal()">
     <div>
@@ -56,12 +54,9 @@
         <mat-icon>+</mat-icon>
       </button>
       }
-
       </div>
       </div>
-
       <br/>
-
       <button type="submit" [disabled]="addMealForm.invalid || ingredientsArray.length === 0">Add Meal</button>
     </div>
   </form>

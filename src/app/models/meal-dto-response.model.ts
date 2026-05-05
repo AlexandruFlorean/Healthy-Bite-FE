@@ -5,7 +5,9 @@ import { RegisterMealIngredientsDto } from "./register-meal-ingredients-dto.mode
 export interface MealDtoResponse {
     id: string;
   name: string;
-  timestamp: Date;
+  timestamp: string;
   userId: string;
+  proteins: number;
+  calories: number;
   mealIngredients: MealIngredientDtoResponse[];
 }

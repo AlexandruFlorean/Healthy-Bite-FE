@@ -20,7 +20,11 @@ export class AuthService {
     login(loginUserDto: LoginUserDto): Observable<string> {
       return this.httpClient.post<string>(`${this.baseUrl}/signIn`, loginUserDto)
       .pipe(tap(respons => {
+        if (respons) {
         localStorage.setItem('userId', respons)
+        } else {
+          console.error('Login failed: No response received');
+        }
       }));
 
     }

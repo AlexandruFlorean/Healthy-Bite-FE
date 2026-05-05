@@ -1,0 +1,29 @@
+<mat-card class="daily-summary-card">
+  <mat-card-header>
+    <mat-card-title>Sumar Nutrițional Zilnic</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="rings-container">
+    
+    <div class="ring-wrapper">
+      <mat-progress-spinner class="bg-spinner" mode="determinate" value="100" [diameter]="150"></mat-progress-spinner>
+      <mat-progress-spinner class="fg-spinner calories" mode="determinate" [value]="getPercentage(consumedCalories, targetCalories)" [diameter]="150"></mat-progress-spinner>
+      <div class="ring-text">
+        <span class="consumed">{{ consumedCalories }}</span>
+        <span class="target">/ {{ targetCalories }}</span>
+        <span class="label">kcal</span>
+      </div>
+    </div>
+
+    <div class="ring-wrapper">
+      <mat-progress-spinner class="bg-spinner" mode="determinate" value="100" [diameter]="150"></mat-progress-spinner>
+      <mat-progress-spinner class="fg-spinner proteins" mode="determinate" [value]="getPercentage(consumedProteins, targetProteins)" [diameter]="150"></mat-progress-spinner>
+      <div class="ring-text">
+        <span class="consumed">{{ consumedProteins }}g</span>
+        <span class="target">/ {{ targetProteins }}g</span>
+        <span class="label">Proteine</span>
+      </div>
+    </div>
+
+  </mat-card-content>
+</mat-card>

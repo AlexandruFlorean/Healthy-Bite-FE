@@ -1,11 +1,9 @@
 import { Component, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Header } from "./header/header";
-import { DailyCalorieCalculator } from "./daily-calorie-calculator/daily-calorie-calculator";
 
 @Component({
   selector: 'app-root',
-  imports: [Header, RouterModule],
+  imports: [RouterModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

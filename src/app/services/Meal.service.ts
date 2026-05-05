@@ -24,4 +24,8 @@ export class MealService {
   getAllMeals(id: String): Observable<MealDtoResponse[]> {
     return this.httpClient.get<MealDtoResponse[]>(`${this.baseUrl}/allMeals?id=${id}`);
   }
+
+  deleteMeal(id: string): Observable<void> {
+    return this.httpClient.delete<void>(`${this.baseUrl}/meal?id=${id}`);
+  }
 }
